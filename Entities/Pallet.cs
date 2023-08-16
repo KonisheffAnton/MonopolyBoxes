@@ -11,19 +11,7 @@ namespace MonopolyBoxes.Entities
     {
         public DateOnly? ExpirationDate { get => this.CalculateExpirationDate(); }
 
-        public override double Depth { get => this.CalculateTotalDepth(); }
-
         public List<Box> Boxes { get; set; } = new List<Box>();
-
-        public double CalculateTotalDepth()
-        {
-            double totalPalletDepth = 30;
-            foreach (var box in Boxes)
-            {
-                totalPalletDepth += box.Depth;
-            }
-            return totalPalletDepth;
-        }
 
         public DateOnly? CalculateExpirationDate()
         {
